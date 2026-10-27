@@ -1,66 +1,41 @@
 # pi-stash
 
-Save prompts from your Pi conversation, give them a name and description, and reuse them across projects.
+Save text prompts from [Pi](https://pi.dev) chat and reuse them across projects.
 
 ## Install
 
-Requires Pi 1.4 or later and Node.js 22.19 or later.
-
-Install from GitHub:
-
-```sh
-pi install git:github.com/thgilciffart/pi-stash
-```
-
-Or install from npm after the package is published:
+Requires Pi 1.4 or later and Node.js 22.19 or later. The extension uses Pi's interactive terminal UI.
 
 ```sh
 pi install npm:@thgilciffart/pi-stash
 ```
 
-Run `/reload` in an existing Pi session, or restart Pi.
+Run `/reload` in an open Pi session.
 
-To try a local checkout before publication:
-
-```sh
-npm install
-pi -e ./src/index.ts
-```
-
-## Save a prompt from chat
+## Save a prompt
 
 1. Run `/stash save`.
-2. Search your sent prompts and select one. The newest prompts appear first.
-3. Review or edit the prompt text.
-4. Enter a name and description.
-5. Choose project or global storage.
+2. Search and select a sent prompt from the current conversation branch.
+3. Edit the text, enter a name and description, and choose project or global storage.
 
-Global prompts live in `~/.pi/agent/stashed-prompts/`. Project prompts live in `.pi/stashed-prompts/` under Pi's current working directory.
+The chat picker includes messages retained before compaction and omits image attachments. To write a prompt, run `/stash` and choose **Write a new prompt**. Ctrl+Alt+S saves your unsent editor draft without clearing it. Esc cancels a save.
 
-The chat picker shows user messages from your current conversation branch, including messages retained before compaction. Image attachments are omitted.
+Global prompts live in `~/.pi/agent/stashed-prompts/`. Project prompts live in `.pi/stashed-prompts/` under Pi's current working directory and require project trust.
 
-To write a prompt directly, run `/stash` and choose **Write a new prompt**. To save an unsent editor draft, press `Ctrl+Alt+S`.
+## Reuse a prompt
 
-Press `Esc` in any save dialog to cancel. The stash keeps your editor draft intact.
+Run `/stash` and choose **Browse saved prompts**. Search names, descriptions, and text, then select a prompt and choose **Insert into editor**. Pi appends it to your draft with a blank line between them. Review and send the draft when ready.
 
-## Reuse a saved prompt
+The same menu lets you view, edit, or delete a prompt. See the [command and file reference](docs/reference.md) for controls and Markdown format.
 
-Run `/stash` and choose **Browse saved prompts**, then type to search names, descriptions, and prompt text. Each entry shows its scope and description.
-
-Select a prompt and choose **Insert into editor**. Pi appends the saved text to your current draft, with a blank line between them. Review the draft and send it when ready.
-
-Choose **View full prompt** to read the prompt in a scrollable preview. The same menu lets you edit or delete it.
-
-The only subcommand is `/stash save`, a shortcut for saving from chat. All other actions live in the `/stash` menus. See the [command and file reference](docs/reference.md) for controls and Markdown format.
-
-## Develop and publish
+## Develop
 
 ```sh
 npm ci
 npm run check
-npm pack --dry-run
+pi -e ./src/index.ts
 ```
 
-See [Publish to npm](docs/publishing.md) for the release steps and Pi gallery metadata.
+See [publishing](docs/publishing.md) for release steps.
 
-MIT licensed.
+[MIT license](LICENSE).
