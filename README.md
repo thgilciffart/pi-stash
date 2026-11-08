@@ -1,6 +1,6 @@
 # pi-stash
 
-Save text prompts from [Pi](https://pi.dev) chat and reuse them across projects.
+Save prompts from Pi chat, browse a searchable stash, and reuse prompts across projects.
 
 ## Install
 

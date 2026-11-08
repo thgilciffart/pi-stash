@@ -1,6 +1,6 @@
 {
   "name": "@thgilciffart/pi-stash",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Save prompts from Pi chat, browse a searchable stash, and reuse prompts across projects.",
   "type": "module",
   "license": "MIT",
